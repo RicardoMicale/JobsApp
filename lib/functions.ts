@@ -9,7 +9,7 @@ dayjs.extend(relativeTime);
 export const createObjectModel = () => {
   //  helper function to create the object model
   const seconds = new Date().getSeconds();
-  const nanoseconds = seconds / 1000000;
+  const nanoseconds = seconds * 1000000000;
   return {
     active: true,
     createdAt: new Timestamp(seconds, nanoseconds),

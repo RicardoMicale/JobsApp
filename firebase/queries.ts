@@ -189,7 +189,7 @@ export const createApplication = async (application: Application) => {
       ...createObjectModel(),
     };
     //  gets all applications
-    const apps = await getApplications();
+    const apps = await getAllApplications();
     if (
       verifyApplication(newApplication, apps?.map((doc) => doc?.data()) ?? [])
     ) {
@@ -228,6 +228,18 @@ export const updateApplication = async (
 };
 
 //  get
+export const getAllApplications = async () => {
+  try {
+    const q = query(applications, where('active', '==', true));
+
+    const allApplications = (await getDocs(q)).docs;
+
+    return allApplications;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const getApplications = async (userId?: string) => {
   try {
     const q = query(applications, where('candidate._id', '==', userId));

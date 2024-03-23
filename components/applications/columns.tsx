@@ -1,13 +1,11 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { Application, Job, User } from '@/models/models';
 import { ColumnDef } from '@tanstack/react-table';
 import dayjs from 'dayjs';
 import { Timestamp } from 'firebase/firestore';
 import { DotIcon, Trash2Icon } from 'lucide-react';
 import { disable } from './applicationFunctions';
-import { useToast } from '../ui/use-toast';
 
 dayjs.locale('es');
 
